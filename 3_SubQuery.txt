@@ -83,3 +83,13 @@ CREATE VIEW EmployeeManagers AS
 SELECT e.employee_name, m.manager_name
 FROM Employee e
 JOIN Manages m ON e.employee_name = m.employee_name;
+
+
+CREATE VIEW EmployeeView AS
+SELECT e.employee_name, e.street, e.city, e.Id, e.Mobile_no, w.company_name, w.salary, c.city AS company_city, m.manager_name
+FROM Employee e
+LEFT JOIN Works w ON e.employee_name = w.employee_name
+LEFT JOIN Company c ON w.company_name = c.company_name
+LEFT JOIN Manages m ON e.employee_name = m.employee_name;
+
+SELECT * FROM EmployeeView;
