@@ -52,6 +52,28 @@ JOIN Works w ON e.employee_name = w.employee_name
 JOIN Company c ON w.company_name = c.company_name;
 
 
+-- Inner Join
+SELECT Employee.employee_name, Works.company_name, Works.salary
+FROM Employee
+INNER JOIN Works ON Employee.employee_name = Works.employee_name;
+
+-- Left Join
+SELECT Employee.employee_name, Works.company_name, Works.salary
+FROM Employee
+LEFT JOIN Works ON Employee.employee_name = Works.employee_name;
+
+-- Right Join
+SELECT Employee.employee_name, Works.company_name, Works.salary
+FROM Employee
+RIGHT JOIN Works ON Employee.employee_name = Works.employee_name;
+
+-- Full Outer Join (not supported in all databases)
+SELECT Employee.employee_name, Works.company_name, Works.salary
+FROM Employee
+FULL OUTER JOIN Works ON Employee.employee_name = Works.employee_name;
+
+
+
 SELECT employee_name, salary
 FROM Works
 WHERE salary > (SELECT AVG(salary) FROM Works);
